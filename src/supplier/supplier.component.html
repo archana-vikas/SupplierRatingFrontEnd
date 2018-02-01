@@ -1,0 +1,32 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+</div>
+<div class='table-responsive'>
+    <table class='table' >
+        <thead>
+            <tr>
+                <th>
+                    SupplierId
+                </th>
+                <th>
+                    SupplierName
+                </th>
+                <th>
+                    Service
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let supplier of suppliers'>
+                <td *ngIf='supplier'>{{supplier.SupplierId}}</td>
+                <td *ngIf='supplier'>{{supplier.SupplierName}}</td>
+                <td *ngIf='supplier'>{{supplier.Service}}</td>
+             </tr>   
+        </tbody>
+    </table>
+</div>
+<div>        
+    {{errorMessage}}
+</div>
