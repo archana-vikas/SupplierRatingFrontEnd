@@ -11,13 +11,41 @@ export class SupplierService
 {
     private _supplierUrl='http://localhost:52672/api/supplier';
     constructor(private _http:HttpClient){}
-
+    //To get list of Suppliers//
     getSuppliers(): Observable<ISupplier[]>
     {
        return this._http.get<ISupplier[]>(this._supplierUrl)
-       .do(data=> console.log('All:' + JSON.stringify(data)))
-       .catch(this.handleError);
+            .do(data=> console.log('All:' + JSON.stringify(data)))
+            .catch(this.handleError);
     }
+    //To add(insert) supplier//
+    addSupplier(newSupplier:ISupplier): Observable<ISupplier>
+    {
+        console.log('newSupplier is:'+ JSON.stringify(newSupplier));
+        return this._http.post<ISupplier>(this._supplierUrl,newSupplier)
+            .do(data=>console.log('All:'+ JSON.stringify(data)))
+            .catch(this.handleError);
+
+    }
+    //Update Supplier//
+    updateSupplier(supplier:ISupplier): Observable<ISupplier>
+    {
+        console.log('updatedSupplier is:'+ JSON.stringify(supplier));
+        return this._http.post<ISupplier>(this._supplierUrl,supplier)
+        .do(data=>console.log('All:'+ JSON.stringify(data)))
+        .catch(this.handleError);
+
+    }
+    //To Delete Supplier//
+    deleteSupplier(supplier:ISupplier): Observable<Boolean>
+    {
+        return this._http.delete<Boolean>(this._supplierUrl+"/"+supplier.SupplierId)
+        .do(data=>console.log('All:'+ JSON.stringify(data)))
+        .catch(this.handleError);
+
+
+    }
+    
     private handleError(err:HttpErrorResponse)
     {
         console.log("OOPs: " + this._supplierUrl+" - " +err.message);

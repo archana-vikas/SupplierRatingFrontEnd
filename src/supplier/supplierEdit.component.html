@@ -1,0 +1,16 @@
+<div>
+        <form>
+            <label for=name>Supplier Name: </label>
+                <input type="text" id="name" 
+                name="SupplierName" [(ngModel)]="newSupplier.SupplierName" placeholder="name"/>
+            <br>
+            <label>Service:</label>
+                <input type="text" id="service"
+                name="Service" [(ngModel)]="newSupplier.service" placeholder="name"/>
+            <br>
+            <button (click)="editSupplier()">
+                Update
+              </button>
+            
+            </form>
+    </div>

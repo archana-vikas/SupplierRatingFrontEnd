@@ -23,10 +23,19 @@
                 <td *ngIf='supplier'>{{supplier.SupplierId}}</td>
                 <td *ngIf='supplier'>{{supplier.SupplierName}}</td>
                 <td *ngIf='supplier'>{{supplier.Service}}</td>
+                <!-- <button type="Submit" value="Edit" (click)="editSupplier(supplier)">Edit</button> -->
+                <a routerLink="Edit" >Edit</a>
+                <button type="Submit" value="Delete" (click)="deleteSupplier(supplier)">Delete</button>
              </tr>   
         </tbody>
     </table>
+    <div>
+        
+    <a routerLink="Add">Add</a>
+           
+    </div>
 </div>
+<router-outlet></router-outlet>
 <div>        
     {{errorMessage}}
 </div>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,Input } from "@angular/core";
 import{SupplierService} from "./supplier.service";
 import{Observable} from "rxjs/Observable";
 import { ISupplier } from "./ISupplier";
-
+import { Router } from '@angular/router';
 
 @Component({
     selector:'rm-suppliers',
@@ -11,12 +11,15 @@ import { ISupplier } from "./ISupplier";
 })
 export class SupplierComponent implements OnInit{
     pageTitle: string ='Supplier List';
-    suppliers: ISupplier[]=[];//[{"SupplierId":1,"SupplierName":"tcs","Service":"Project Management","Rating":"3"}];
+    @Input() suppliers: ISupplier[]=[];//[{"SupplierId":1,"SupplierName":"tcs","Service":"Project Management","Rating":"3"}];
     errorMessage: string;
+    result: Boolean;
+    
     constructor(private _supplierService:SupplierService)
     {
 
     }
+    
 ngOnInit():void{
      //this.suppliers.push ({"SupplierId":1,"SupplierName":"txcs","Service":"Project Management","Rating":"3"}) 
      this._supplierService.getSuppliers()
@@ -24,6 +27,26 @@ ngOnInit():void{
                 this.suppliers=suppliers;
                 console.log('Allx:' + JSON.stringify(this.suppliers));
             },
-            error=>this.errorMessage=<any>error);        
-}
+            error=>this.errorMessage=<any>error);    
+        }
+
+
+   //Service to delete data//
+   deleteSupplier(supplier: ISupplier):void{
+    this._supplierService.deleteSupplier(supplier)
+        .subscribe(result=>{
+                this.result=result;
+                console.log('Result of Delete:' + JSON.stringify(this.result));
+                console.log('Count before Delete:' + this.suppliers.length);                
+                if(result){
+                    this.suppliers = this.suppliers.filter(s => s.SupplierId !== supplier.SupplierId);  
+                }
+                console.log('Count after Delete:' + this.suppliers.length);
+                
+        },
+        error=>this.errorMessage=<any>error); 
+
+    }
+
+
 }
