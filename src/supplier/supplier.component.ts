@@ -15,7 +15,7 @@ export class SupplierComponent implements OnInit{
     errorMessage: string;
     result: Boolean;
     
-    constructor(private _supplierService:SupplierService)
+    constructor(private _supplierService:SupplierService, private router:Router)
     {
 
     }
@@ -46,6 +46,10 @@ ngOnInit():void{
         },
         error=>this.errorMessage=<any>error); 
 
+    }
+
+    editSupplier(supplier: ISupplier):void{
+        this.router.navigate(['suppliers/Edit', supplier.SupplierId]);
     }
 
 

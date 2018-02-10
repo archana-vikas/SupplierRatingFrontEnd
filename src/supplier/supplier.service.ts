@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { ISupplier} from "./ISupplier";
 import 'rxjs/add/observable/throw';
@@ -22,7 +22,7 @@ export class SupplierService
     addSupplier(newSupplier:ISupplier): Observable<ISupplier>
     {
         console.log('newSupplier is:'+ JSON.stringify(newSupplier));
-        return this._http.post<ISupplier>(this._supplierUrl,newSupplier)
+        return this._http.put<ISupplier>(this._supplierUrl, newSupplier)
             .do(data=>console.log('All:'+ JSON.stringify(data)))
             .catch(this.handleError);
 
@@ -31,7 +31,9 @@ export class SupplierService
     updateSupplier(supplier:ISupplier): Observable<ISupplier>
     {
         console.log('updatedSupplier is:'+ JSON.stringify(supplier));
-        return this._http.post<ISupplier>(this._supplierUrl,supplier)
+        const header = new HttpHeaders().set('Content-Type', 'application/json')
+        
+        return this._http.post<ISupplier>(this._supplierUrl,supplier, {headers: header,})
         .do(data=>console.log('All:'+ JSON.stringify(data)))
         .catch(this.handleError);
 
@@ -42,8 +44,13 @@ export class SupplierService
         return this._http.delete<Boolean>(this._supplierUrl+"/"+supplier.SupplierId)
         .do(data=>console.log('All:'+ JSON.stringify(data)))
         .catch(this.handleError);
+    }
 
-
+    getSupplierById(supplierId:Number): Observable<ISupplier>
+    {
+       return this._http.get<ISupplier>(this._supplierUrl+"/"+supplierId)
+            .do(data=> console.log('All:' + JSON.stringify(data)))
+            .catch(this.handleError);
     }
     
     private handleError(err:HttpErrorResponse)

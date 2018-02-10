@@ -1,14 +1,12 @@
 <div>
         <form>
             <label for=name>Supplier Name: </label>
-                <input type="text" id="name" 
-                name="SupplierName" [(ngModel)]="newSupplier.SupplierName" placeholder="name"/>
+                <input type="text" id="name" name="SupplierName" [(ngModel)]="supplier.SupplierName" placeholder="name"/>
             <br>
             <label>Service:</label>
-                <input type="text" id="service"
-                name="Service" [(ngModel)]="newSupplier.service" placeholder="name"/>
+                <input type="text" id="service" name="Service" [(ngModel)]="supplier.Service" placeholder="name" autocomplete="off"/>
             <br>
-            <button (click)="editSupplier()">
+            <button (click)="updateSupplier()">
                 Update
               </button>
             
