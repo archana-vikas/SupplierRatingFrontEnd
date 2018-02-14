@@ -11,18 +11,17 @@ import { SupplierComponent } from '../supplier/supplier.component';
 import { StarComponent } from '../share/star.component';
 import { HttpClientModule } from '@angular/common/http';
 import {AddSupplierComponent} from '../supplier/supplierAdd.component';
+import {EditUserComponent} from '../user/userEdit.component';
 import{EditSupplierComponent} from '../supplier/supplierEdit.component';
+
+import {UserComponent} from '../user/user.component';
+import {AddUserComponent} from '../user/userAdd.component';
 import{RouterModule,Routes} from '@angular/router';
 
-const appRoutes:Routes=
-[{ path:'./supplierAdd.component.html',component:AddSupplierComponent},
- {path:'./supplierEdit.component.html',component:EditSupplierComponent},
-
-]
 
 @NgModule({
   declarations: [
-    AppComponent,SupplierComponent,StarComponent,AddSupplierComponent,EditSupplierComponent,
+    AppComponent,SupplierComponent,StarComponent,AddSupplierComponent,EditSupplierComponent,UserComponent,EditUserComponent,AddUserComponent,
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule, AppRoutingModule    

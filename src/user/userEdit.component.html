@@ -1,0 +1,23 @@
+<div>
+    <form>
+        <label for=name>User Name: </label>
+            <input type="text" id="name" name="UserName" [(ngModel)]="user.UserName" placeholder="name"/>
+        <br>
+        <label>Role</label>
+            <input type="text" id="Role" name="Role" [(ngModel)]="user.Role" placeholder="name" autocomplete="off"/>
+        <br>
+        <label>Email</label>
+        <input type="text" id="Email" name="Email" [(ngModel)]="user.Email" placeholder="name" autocomplete="off"/>
+        <br>
+        <label>Created On</label>
+        <input type="text" id="CreatedOn" name="CreatedOn" [(ngModel)]="user.CreatedOn" placeholder="name" autocomplete="off"/>
+        <br>
+        <label>Status</label>
+        <input type="text" id="Status" name="Status" [(ngModel)]="user.Status" placeholder="name" autocomplete="off"/>
+        <br>
+        <button (click)="updateUser()">
+            Update
+          </button>
+        
+        </form>
+</div>

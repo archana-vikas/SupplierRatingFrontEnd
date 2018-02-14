@@ -1,0 +1,51 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+</div>
+
+<div class='table-responsive'>
+    <table class='table' >
+        <thead>
+            <tr>
+                <th>
+                    UserId
+                </th>
+                <th>
+                    UserName
+                </th>
+                <th>
+                    Role
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    CreatedOn
+                </th>
+                <th>
+                    Status
+                </th>
+                 <a routerLink="Add">Add</a> 
+                </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let user of users'>
+                <td *ngIf='user'>{{user.UserId}}</td>
+                <td *ngIf='user'>{{user.UserName}}</td>
+                <td *ngIf='user'>{{user.Role}}</td>
+                <td *ngIf='user'>{{user.Email}}</td>
+                <td *ngIf='user'>{{user.CreatedOn}}</td>
+                <td *ngIf='user'>{{user.Status}}</td>
+                <button type="button" value="Edit" (click)="editUser(user)">Edit</button>
+                <button type="button" value="Delete" (click)="deleteUser(user)">Delete</button>
+            </tr>   
+        </tbody>
+    </table>
+    <div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<div>        
+    {{errorMessage}}
+</div>

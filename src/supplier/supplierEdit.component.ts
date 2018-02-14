@@ -43,7 +43,7 @@ export class EditSupplierComponent implements OnInit
         this._supplierService.getSupplierById(this.supplierId)
         .subscribe(supplierToEdit=>{
             this.supplier=supplierToEdit;
-            console.log('Allx:' + JSON.stringify(this.supplier));
+            console.log('All:' + JSON.stringify(this.supplier));
         },
         error=>this.errorMessage=<any>error);
     }
