@@ -18,6 +18,14 @@ export class SupplierService
             .do(data=> console.log('All:' + JSON.stringify(data)))
             .catch(this.handleError);
     }
+
+    //Service to get suppliers Name//
+    getSuppliersName(): Observable<ISupplier[]>
+    {
+       return this._http.get<ISupplier[]>(this._supplierUrl)
+       .do(data=>console.log('All:' + JSON.stringify(data))) 
+       .catch(this.handleError);
+    }
     //To add(insert) supplier//
     addSupplier(newSupplier:ISupplier): Observable<ISupplier>
     {

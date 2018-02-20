@@ -16,12 +16,14 @@ import{EditSupplierComponent} from '../supplier/supplierEdit.component';
 
 import {UserComponent} from '../user/user.component';
 import {AddUserComponent} from '../user/userAdd.component';
-import{RouterModule,Routes} from '@angular/router';
+import {RouterModule,Routes} from '@angular/router';
+import {SupplierListComponent} from '../MainPage/supplierList.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,SupplierComponent,StarComponent,AddSupplierComponent,EditSupplierComponent,UserComponent,EditUserComponent,AddUserComponent,
+    SupplierListComponent
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule, AppRoutingModule    

@@ -6,11 +6,12 @@ import { EditSupplierComponent} from '../supplier/supplierEdit.component';
 import { UserComponent } from '../user/user.component';
 import {AddUserComponent} from '../user/userAdd.component';
 import {EditUserComponent} from '../user/userEdit.component';
+import {SupplierListComponent} from '../MainPage/supplierList.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: SupplierComponent },
+  { path: 'home', component: SupplierListComponent  },
   { path: 'suppliers', component: SupplierComponent },
   { path: 'users', component: UserComponent },
   { path: 'suppliers/Add', component:AddSupplierComponent},

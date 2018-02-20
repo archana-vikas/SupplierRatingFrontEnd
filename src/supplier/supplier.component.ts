@@ -25,7 +25,7 @@ ngOnInit():void{
      this._supplierService.getSuppliers()
             .subscribe(suppliers=>{
                 this.suppliers=suppliers;
-                console.log('Allx:' + JSON.stringify(this.suppliers));
+                console.log('All:' + JSON.stringify(this.suppliers));
             },
             error=>this.errorMessage=<any>error);    
         }
