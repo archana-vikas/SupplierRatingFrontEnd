@@ -7,6 +7,7 @@ import { UserComponent } from '../user/user.component';
 import {AddUserComponent} from '../user/userAdd.component';
 import {EditUserComponent} from '../user/userEdit.component';
 import {SupplierListComponent} from '../MainPage/supplierList.component';
+import { RatingComponent } from '../rating/rating.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
   },
   {path:'users/Add', component:AddUserComponent},
   { path: 'users/Edit/:userId', component:EditUserComponent},
-  
+  {path:'rating',component:RatingComponent}
 ];
 
 @NgModule({

@@ -18,12 +18,15 @@ import {UserComponent} from '../user/user.component';
 import {AddUserComponent} from '../user/userAdd.component';
 import {RouterModule,Routes} from '@angular/router';
 import {SupplierListComponent} from '../MainPage/supplierList.component';
+import { RatingComponent } from '../rating/rating.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,SupplierComponent,StarComponent,AddSupplierComponent,EditSupplierComponent,UserComponent,EditUserComponent,AddUserComponent,
-    SupplierListComponent
+    SupplierListComponent, RatingComponent
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule, AppRoutingModule    

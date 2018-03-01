@@ -1,0 +1,22 @@
+<div>
+    {{pageTitle}}
+</div>
+<div>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>RatingCategory</th>
+                <th>Rating</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor='let rating of newRatings'>
+                <td *ngIf='rating'>{{rating.category.CategoryName}}</td>
+                <input type="text" id="Rating">
+            </tr>
+        </tbody>
+
+    </table>
+    <button type="submit" value="Submit"></button>
+</div>
